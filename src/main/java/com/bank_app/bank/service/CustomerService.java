@@ -67,4 +67,9 @@ public class CustomerService {
         response.setReceivedMoneyDate(LocalDateTime.now());
         return response;
     }
+
+    public boolean authenticate(String username, String password) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'authenticate'");
+    }
 }

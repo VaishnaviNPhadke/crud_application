@@ -1,7 +1,14 @@
+// File: CustomerController.java
 package com.bank_app.bank.controller;
 import com.bank_app.bank.model.Customer;
 import com.bank_app.bank.model.TransactionResponse;
+import com.bank_app.bank.security.jwtUtil;
 import com.bank_app.bank.service.CustomerService;
+
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 @RestController
@@ -9,9 +16,12 @@ import org.springframework.web.bind.annotation.*;
 public class CustomerController {
 
     private final CustomerService customerService;
+    private final jwtUtil jwtUtil;
 
-    public CustomerController(CustomerService customerService) {
+    @Autowired
+    public CustomerController(CustomerService customerService, jwtUtil jwtUtil) {
         this.customerService = customerService;
+        this.jwtUtil = jwtUtil;
     }
 
     @PostMapping("/add")
